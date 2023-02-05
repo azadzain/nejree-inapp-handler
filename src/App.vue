@@ -17,6 +17,8 @@
       :lang="lang"
     />
 
+    <PageCarousel v-if="full_carousel" :id="full_carousel" :lang="lang" />
+
   </div>
 </template>
 <script>
@@ -24,6 +26,7 @@ import TopCarousel from "./components/TopCarousel.vue";
 import PageAccordion from "./components/PageAccordion.vue";
 import PageContentGroup from "./components/PageContentGroup.vue";
 import PageTiers from "./components/PageTiers.vue";
+import PageCarousel from "./components/PageCarousel.vue";
 
 export default {
   name: "Home",
@@ -32,6 +35,7 @@ export default {
       carousel_id: false,
       category: false,
       content_group: false,
+      full_carousel: false,
       user: false,
       lang: 'en'
     };
@@ -48,6 +52,7 @@ export default {
       this.content_group = params.con ? params.con : false;
       this.category = params.cat ? params.cat : false;
       this.lang = params.lang ? params.lang : 'en';
+      this.full_carousel = params.fullcar ? params.fullcar : false;
       if( params.t || params.n || params.earnings || params.max_points || params.progress ){
         this.user = {}
         this.user.active_tier = params.t ? params.t : false;
@@ -64,6 +69,7 @@ export default {
     PageAccordion,
     PageTiers,
     PageContentGroup,
+    PageCarousel,
   },
 };
 </script>
@@ -253,7 +259,7 @@ table td {
   --primary-800: #125386;
   --primary-900: #0d3c61;
 }
-#app {
+#app, .p-component {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
