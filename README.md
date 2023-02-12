@@ -1,4 +1,4 @@
-# nejree_howtos
+# Nejree In-App Handler
 
 App handler for in-app html/js embedded scenarios.
 
